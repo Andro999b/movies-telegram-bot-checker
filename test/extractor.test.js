@@ -15,7 +15,7 @@ const testParameters = [
     {
         type: "anigit",
         url: "https://aniqit.com/serial/4898/d72ca532e8abcbd0d6b6ca56f9544341/720p?season=1&only_episode=true&episode=100&translations=false"
-    }
+    },
     // {
     //     type: "stormo",
     //     url: "https://www.stormo.online/embed/593318/"
@@ -25,7 +25,6 @@ const testParameters = [
 describe("ExtractAPI", () => {
     testParameters.forEach(({ type, url }) => {
         it(`Extractor ${type} should works for ${url}`, async () => {
-            console.log(`${baseApiUrl}?type=${type}&url=${encodeURIComponent(url)}`);
             const res = await axios.get(`${baseApiUrl}?type=${type}&url=${encodeURIComponent(url)}`, { 
                 maxRedirects: 0,
                 validateStatus: (status) => status == 302
