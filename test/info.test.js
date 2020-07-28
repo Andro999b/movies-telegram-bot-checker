@@ -7,31 +7,26 @@ const testParameters = [
     {
         provider: "nekomori",
         id: "2685",
-        path: true,
         extractors: [ "sibnetmp4" ]
     },
     {
         provider: "nekomori",
         id: "150",
-        path: true,
         extractors: [ "sibnetmp4", "anigit" ]
     },    
     {
         provider: "nekomori",
         id: "13712",
-        path: true,
         extractors: [ "sibnetmp4", "stormo" ]
     },
     {
         provider: "animevost",
         id: "https%3A%2F%2Fanimevost.org%2Ftip%2Ftv%2F2281-dr-stone.html",
-        path: false,
         extractors: [ "animevost" ]
     },
     {
         provider: "seasonvar",
         id: "%2Fserial-24137-Grand_Tur-4-sezon.html",
-        path: true
     },
     {
         provider: "kinogo",
@@ -40,12 +35,10 @@ const testParameters = [
     {
         provider: "kinogo",
         id: "https%3A%2F%2Fkinogo.by%2F15114-ballmastrz-9009_2018.html",
-        path: false
     },
     {
         provider: "kinogo",
         id: "https%3A%2F%2Fkinogo.by%2F6347-parki-i-zony-otdyha_parks-and-recreation_1-2-3-4-5-6-7-sezon.html",
-        path: false
     },
     {
         provider: "videocdn",
@@ -70,7 +63,12 @@ const testParameters = [
         id: "http%3A%2F%2F7serialov.net%2Fload%2Fdrama%2Forvill_1%2F8-1-0-386",
         manifest: true,
         path: true
-    }
+    },
+/*     {
+        provider: "kinogo2",
+        id: "https%3A%2F%2Fkinogo.cc%2F32291-strana-rozhdestva-nosferatu-nos4a2-kinogo-2019.html",
+        manifest: true
+    } */
 ]
 
 describe("InfoAPI", () => {
@@ -92,16 +90,18 @@ describe("InfoAPI", () => {
                 if(manifest) {
                     expect(file.manifestUrl, `'manifestUrl' id not present`).to.be.not.empty
                 } else {
-                    expect(file.url, `'url' id not present`).to.be.not.empty
+                    expect(file.urls, `'urls' is not present`).to.be.not.empty
+                    file.urls.forEach((urlInfo) => {
+                        expect(urlInfo.url, `'url' id not present`).to.be.not.null
+                        if(extractors) {
+                            expect(urlInfo.extractor, 'expect extractor to exits').exist
+                            expect(urlInfo.extractor.type, `Unknow extractor type ${urlInfo.extractor.type}`).to.be.oneOf(extractors)
+                        }
+                    })
                 }
 
                 if(path) {
-                    expect(file.path, `'path' id not present`).to.be.not.empty
-                }
-
-                if(extractors) {
-                    expect(file.extractor).exist
-                    expect(file.extractor.type, `Unknow extractor type ${file.extractor.type}`).to.be.oneOf(extractors)
+                    expect(file.path, `'path' is not present`).to.be.not.empty
                 }
             })
         })

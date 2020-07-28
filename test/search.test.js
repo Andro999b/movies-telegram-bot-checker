@@ -31,7 +31,11 @@ const testParameters = [
     {
         provider: "7serealov",
         query: "Во все тяжкие"
-    }
+    },
+/*     {
+        provider: "kingo2",
+        query: "Во все тяжкие"
+    } */
 ]
 
 describe("SearchAPI", () => {
@@ -46,7 +50,6 @@ describe("SearchAPI", () => {
             data.forEach((result) => {
                 expect(result.provider, "Missing correct provider value in result").to.be.equal(provider)
                 expect(result.name, `Empty name`).to.be.not.empty
-                expect(result.image, `Empty image`).to.be.not.empty
                 expect(result.id, `Missing id`).to.be.not.null
             })
         })

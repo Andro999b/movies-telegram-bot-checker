@@ -1,25 +1,34 @@
-<testsuite name="Mocha Tests" tests="23" failures="0" errors="0" skipped="0" timestamp="Tue, 12 May 2020 12:49:50 GMT" time="11.319">
-<testcase classname="ExtractAPI" name="Extractor animevost should works for https://play.roomfish.ru/2147406642" time="0.237"/>
-<testcase classname="ExtractAPI" name="Extractor sibnetmp4 should works for https://video.sibnet.ru/shell.php?videoid=3580403" time="1.582"/>
-<testcase classname="ExtractAPI" name="Extractor anigit should works for https://aniqit.com/serial/4898/d72ca532e8abcbd0d6b6ca56f9544341/720p?season=1&#x26;only_episode=true&#x26;episode=100&#x26;translations=false" time="1.033"/>
-<testcase classname="InfoAPI" name="Provider nekomori should return playlist by 2685" time="0.18"/>
-<testcase classname="InfoAPI" name="Provider nekomori should return playlist by 150" time="1.189"/>
-<testcase classname="InfoAPI" name="Provider nekomori should return playlist by 13712" time="0.154"/>
-<testcase classname="InfoAPI" name="Provider animevost should return playlist by https%3A%2F%2Fanimevost.org%2Ftip%2Ftv%2F2281-dr-stone.html" time="0.166"/>
-<testcase classname="InfoAPI" name="Provider seasonvar should return playlist by %2Fserial-24137-Grand_Tur-4-sezon.html" time="0.149"/>
-<testcase classname="InfoAPI" name="Provider kinogo should return playlist by https%3A%2F%2Fkinogo.by%2F2048-gorod-grehov-2-zhenschina-radi-kotoroy-stoit-ubivat-2014-smotret-onlayn.html" time="0.134"/>
-<testcase classname="InfoAPI" name="Provider kinogo should return playlist by https%3A%2F%2Fkinogo.by%2F15114-ballmastrz-9009_2018.html" time="0.143"/>
-<testcase classname="InfoAPI" name="Provider kinogo should return playlist by https%3A%2F%2Fkinogo.by%2F6347-parki-i-zony-otdyha_parks-and-recreation_1-2-3-4-5-6-7-sezon.html" time="0.222"/>
-<testcase classname="InfoAPI" name="Provider videocdn should return playlist by tv-series_3381" time="0.184"/>
-<testcase classname="InfoAPI" name="Provider videocdn should return playlist by movies_1765" time="0.159"/>
-<testcase classname="InfoAPI" name="Provider kinovod should return playlist by %2Ffilm%2F2164-gorod-grehov" time="0.137"/>
-<testcase classname="InfoAPI" name="Provider kinovod should return playlist by %2Ftv_show%2F7357-grand-tur" time="0.165"/>
-<testcase classname="InfoAPI" name="Provider 7serealov should return playlist by http%3A%2F%2F7serialov.net%2Fload%2Fdrama%2Forvill_1%2F8-1-0-386" time="0.127"/>
-<testcase classname="SearchAPI" name="Provider nekomori should return results by search query &#x27;&#x422;&#x435;&#x442;&#x440;&#x430;&#x434;&#x44C; &#x441;&#x43C;&#x435;&#x440;&#x442;&#x438;&#x27;" time="0.399"/>
-<testcase classname="SearchAPI" name="Provider animevost should return results by search query &#x27;&#x422;&#x435;&#x442;&#x440;&#x430;&#x434;&#x44C; &#x441;&#x43C;&#x435;&#x440;&#x442;&#x438;&#x27;" time="0.56"/>
-<testcase classname="SearchAPI" name="Provider seasonvar should return results by search query &#x27;&#x412;&#x43E; &#x432;&#x441;&#x435; &#x442;&#x44F;&#x436;&#x43A;&#x438;&#x435;&#x27;" time="2.239"/>
-<testcase classname="SearchAPI" name="Provider kinogo should return results by search query &#x27;&#x422;&#x435;&#x440;&#x43C;&#x438;&#x43D;&#x430;&#x442;&#x43E;&#x440;&#x27;" time="0.724"/>
-<testcase classname="SearchAPI" name="Provider videocdn should return results by search query &#x27;&#x422;&#x435;&#x440;&#x43C;&#x438;&#x43D;&#x430;&#x442;&#x43E;&#x440;&#x27;" time="0.355"/>
-<testcase classname="SearchAPI" name="Provider kinovod should return results by search query &#x27;&#x422;&#x435;&#x440;&#x43C;&#x438;&#x43D;&#x430;&#x442;&#x43E;&#x440;&#x27;" time="0.72"/>
-<testcase classname="SearchAPI" name="Provider 7serealov should return results by search query &#x27;&#x412;&#x43E; &#x432;&#x441;&#x435; &#x442;&#x44F;&#x436;&#x43A;&#x438;&#x435;&#x27;" time="0.339"/>
+<testsuite name="Mocha Tests" tests="25" failures="0" errors="3" skipped="0" timestamp="Tue, 28 Jul 2020 08:17:42 GMT" time="29.539">
+<testcase classname="ExtractAPI" name="Extractor animevost should works for https://play.roomfish.ru/2147406642" time="1.045"/>
+<testcase classname="ExtractAPI" name="Extractor sibnetmp4 should works for https://video.sibnet.ru/shell.php?videoid=3580403" time="1.929"/>
+<testcase classname="ExtractAPI" name="Extractor anigit should works for https://aniqit.com/serial/4898/d72ca532e8abcbd0d6b6ca56f9544341/720p?season=1&#x26;only_episode=true&#x26;episode=100&#x26;translations=false" time="5.007"><failure>Timeout of 5000ms exceeded. For async tests and hooks, ensure &#x22;done()&#x22; is called; if returning a Promise, ensure it resolves. (/home/andrii/projects/movies-telegram-bot-checker/test/extractor.test.js)
+Error: Timeout of 5000ms exceeded. For async tests and hooks, ensure &#x22;done()&#x22; is called; if returning a Promise, ensure it resolves. (/home/andrii/projects/movies-telegram-bot-checker/test/extractor.test.js)</failure></testcase>
+<testcase classname="InfoAPI" name="Provider nekomori should return playlist by 2685" time="0.689"/>
+<testcase classname="InfoAPI" name="Provider nekomori should return playlist by 150" time="1.637"/>
+<testcase classname="InfoAPI" name="Provider nekomori should return playlist by 13712" time="0.817"/>
+<testcase classname="InfoAPI" name="Provider animevost should return playlist by https%3A%2F%2Fanimevost.org%2Ftip%2Ftv%2F2281-dr-stone.html" time="0.832"/>
+<testcase classname="InfoAPI" name="Provider seasonvar should return playlist by %2Fserial-24137-Grand_Tur-4-sezon.html" time="0.643"/>
+<testcase classname="InfoAPI" name="Provider kinogo should return playlist by https%3A%2F%2Fkinogo.by%2F2048-gorod-grehov-2-zhenschina-radi-kotoroy-stoit-ubivat-2014-smotret-onlayn.html" time="0.651"/>
+<testcase classname="InfoAPI" name="Provider kinogo should return playlist by https%3A%2F%2Fkinogo.by%2F15114-ballmastrz-9009_2018.html" time="0.822"/>
+<testcase classname="InfoAPI" name="Provider kinogo should return playlist by https%3A%2F%2Fkinogo.by%2F6347-parki-i-zony-otdyha_parks-and-recreation_1-2-3-4-5-6-7-sezon.html" time="0.965"/>
+<testcase classname="InfoAPI" name="Provider videocdn should return playlist by tv-series_3381" time="0.82"/>
+<testcase classname="InfoAPI" name="Provider videocdn should return playlist by movies_1765" time="0.645"/>
+<testcase classname="InfoAPI" name="Provider kinovod should return playlist by %2Ffilm%2F2164-gorod-grehov" time="0.813"/>
+<testcase classname="InfoAPI" name="Provider kinovod should return playlist by %2Ftv_show%2F7357-grand-tur" time="0.958"/>
+<testcase classname="InfoAPI" name="Provider 7serealov should return playlist by http%3A%2F%2F7serialov.net%2Fload%2Fdrama%2Forvill_1%2F8-1-0-386" time="0.819"/>
+<testcase classname="InfoAPI" name="Provider kinogo2 should return playlist by https%3A%2F%2Fkinogo.cc%2F32291-strana-rozhdestva-nosferatu-nos4a2-kinogo-2019.html" time="1.969"><failure>Playlist files list not present: expected [] not to be empty
+AssertionError: Playlist files list not present: expected [] not to be empty
+    at Context.it (test/info.test.js:84:76)
+    at process._tickCallback (internal/process/next_tick.js:68:7)</failure></testcase>
+<testcase classname="SearchAPI" name="Provider nekomori should return results by search query &#x27;&#x422;&#x435;&#x442;&#x440;&#x430;&#x434;&#x44C; &#x441;&#x43C;&#x435;&#x440;&#x442;&#x438;&#x27;" time="1.065"/>
+<testcase classname="SearchAPI" name="Provider animevost should return results by search query &#x27;&#x422;&#x435;&#x442;&#x440;&#x430;&#x434;&#x44C; &#x441;&#x43C;&#x435;&#x440;&#x442;&#x438;&#x27;" time="1.167"/>
+<testcase classname="SearchAPI" name="Provider seasonvar should return results by search query &#x27;&#x412;&#x43E; &#x432;&#x441;&#x435; &#x442;&#x44F;&#x436;&#x43A;&#x438;&#x435;&#x27;" time="0.782"/>
+<testcase classname="SearchAPI" name="Provider kinogo should return results by search query &#x27;&#x422;&#x435;&#x440;&#x43C;&#x438;&#x43D;&#x430;&#x442;&#x43E;&#x440;&#x27;" time="1.259"/>
+<testcase classname="SearchAPI" name="Provider videocdn should return results by search query &#x27;&#x422;&#x435;&#x440;&#x43C;&#x438;&#x43D;&#x430;&#x442;&#x43E;&#x440;&#x27;" time="1.198"/>
+<testcase classname="SearchAPI" name="Provider kinovod should return results by search query &#x27;&#x422;&#x435;&#x440;&#x43C;&#x438;&#x43D;&#x430;&#x442;&#x43E;&#x440;&#x27;" time="1.398"/>
+<testcase classname="SearchAPI" name="Provider 7serealov should return results by search query &#x27;&#x412;&#x43E; &#x432;&#x441;&#x435; &#x442;&#x44F;&#x436;&#x43A;&#x438;&#x435;&#x27;" time="0.921"/>
+<testcase classname="SearchAPI" name="Provider kingo2 should return results by search query &#x27;&#x412;&#x43E; &#x432;&#x441;&#x435; &#x442;&#x44F;&#x436;&#x43A;&#x438;&#x435;&#x27;" time="0.649"><failure>Empty response: expected [] not to be empty
+AssertionError: Empty response: expected [] not to be empty
+    at Context.it (test/search.test.js:48:53)
+    at process._tickCallback (internal/process/next_tick.js:68:7)</failure></testcase>
 </testsuite>
