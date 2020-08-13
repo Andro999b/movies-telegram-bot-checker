@@ -1,7 +1,7 @@
 const axios = require("axios")
 const { expect } = require("chai")
 
-const baseApiUrl = "https://6gov3btrq2.execute-api.eu-central-1.amazonaws.com/dev/api/extract"
+const baseApiUrl = "https://mcw4r3l663.execute-api.eu-central-1.amazonaws.com/prod/api/extract"
 
 const testParameters = [
     {

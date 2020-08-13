@@ -1,7 +1,7 @@
 const axios = require("axios")
 const { expect } = require("chai")
 
-const baseApiUrl = "https://6gov3btrq2.execute-api.eu-central-1.amazonaws.com/dev/api/trackers"
+const baseApiUrl = "https://mcw4r3l663.execute-api.eu-central-1.amazonaws.com/prod/api/trackers"
 
 const testParameters = [
     {
@@ -22,7 +22,7 @@ const testParameters = [
     {
         provider: "animevost",
         id: "https%3A%2F%2Fanimevost.org%2Ftip%2Ftv%2F2281-dr-stone.html",
-        extractors: [ "animevost" ]
+        asyncSource: true
     },
     {
         provider: "seasonvar",
@@ -64,15 +64,15 @@ const testParameters = [
         manifest: true,
         path: true
     },
-/*     {
+    {
         provider: "kinogo2",
         id: "https%3A%2F%2Fkinogo.cc%2F32291-strana-rozhdestva-nosferatu-nos4a2-kinogo-2019.html",
         manifest: true
-    } */
+    }
 ]
 
 describe("InfoAPI", () => {
-    testParameters.forEach(({ provider, id, manifest, path, extractors }) => {
+    testParameters.forEach(({ provider, id, manifest, asyncSource, path, extractors }) => {
         it(`Provider ${provider} should return playlist by ${id}`, async () => {
             const res =  await axios.get(`${baseApiUrl}/${provider}/items/${id}`)
             const { data, status } = res
@@ -87,12 +87,14 @@ describe("InfoAPI", () => {
                 expect(file.id, `File id not present`).exist
                 expect(file.name, `Empty name`).to.be.not.empty
 
-                if(manifest) {
-                    expect(file.manifestUrl, `'manifestUrl' id not present`).to.be.not.empty
+                if(asyncSource) {
+                    expect(file.asyncSource, `'asyncSource' is not present`).to.be.not.empty
+                } else if(manifest) {
+                    expect(file.manifestUrl, `'manifestUrl' is not present`).to.be.not.empty
                 } else {
                     expect(file.urls, `'urls' is not present`).to.be.not.empty
                     file.urls.forEach((urlInfo) => {
-                        expect(urlInfo.url, `'url' id not present`).to.be.not.null
+                        expect(urlInfo.url, `'url' is not present`).to.be.not.null
                         if(extractors) {
                             expect(urlInfo.extractor, 'expect extractor to exits').exist
                             expect(urlInfo.extractor.type, `Unknow extractor type ${urlInfo.extractor.type}`).to.be.oneOf(extractors)

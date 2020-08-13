@@ -1,7 +1,7 @@
 const axios = require("axios")
 const { expect } = require("chai")
 
-const baseApiUrl = "https://6gov3btrq2.execute-api.eu-central-1.amazonaws.com/dev/api/trackers"
+const baseApiUrl = "https://mcw4r3l663.execute-api.eu-central-1.amazonaws.com/prod/api/trackers"
 
 const testParameters = [
     {
@@ -32,10 +32,10 @@ const testParameters = [
         provider: "7serealov",
         query: "Во все тяжкие"
     },
-/*     {
-        provider: "kingo2",
+    {
+        provider: "kinogo2",
         query: "Во все тяжкие"
-    } */
+    }
 ]
 
 describe("SearchAPI", () => {
