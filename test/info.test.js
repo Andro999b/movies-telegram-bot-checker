@@ -57,17 +57,6 @@ const testParameters = [
         provider: "kinovod",
         id: "%2Ftv_show%2F7357-grand-tur",
         path: true
-    },
-    {
-        provider: "7serealov",
-        id: "http%3A%2F%2F7serialov.net%2Fload%2Fdrama%2Forvill_1%2F8-1-0-386",
-        manifest: true,
-        path: true
-    },
-    {
-        provider: "kinogo2",
-        id: "https%3A%2F%2Fkinogo.cc%2F32291-strana-rozhdestva-nosferatu-nos4a2-kinogo-2019.html",
-        manifest: true
     }
 ]
 

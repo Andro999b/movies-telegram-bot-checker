@@ -11,15 +11,7 @@ const testParameters = [
     {
         type: "sibnetmp4",
         url: "https://video.sibnet.ru/shell.php?videoid=3580403"
-    },
-    {
-        type: "anigit",
-        url: "https://aniqit.com/serial/4898/d72ca532e8abcbd0d6b6ca56f9544341/720p?season=1&only_episode=true&episode=100&translations=false"
-    },
-    // {
-    //     type: "stormo",
-    //     url: "https://www.stormo.online/embed/593318/"
-    // },
+    }
 ]
 
 describe("ExtractAPI", () => {
