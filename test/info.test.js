@@ -28,26 +28,30 @@ const testParameters = [
         provider: "seasonvar",
         id: "%2Fserial-24137-Grand_Tur-4-sezon.html",
     },
-    {
+    { // movie
         provider: "kinogo",
-        id: "https%3A%2F%2Fkinogo.by%2F2048-gorod-grehov-2-zhenschina-radi-kotoroy-stoit-ubivat-2014-smotret-onlayn.html"
+        id: "https%3A%2F%2Fkinogo.appspot.com%2F11361-venom_2018___22-01.html",
+        timeout: 15000
+    },
+    { // tvshow
+        provider: "kinogo",
+        id: "https%3A%2F%2Fkinogo.appspot.com%2F17293-project-blue-book_1-2-sezon.html",
+        timeout: 15000
     },
     {
         provider: "kinogo",
-        id: "https%3A%2F%2Fkinogo.by%2F15114-ballmastrz-9009_2018.html",
-    },
-    {
-        provider: "kinogo",
-        id: "https%3A%2F%2Fkinogo.by%2F6347-parki-i-zony-otdyha_parks-and-recreation_1-2-3-4-5-6-7-sezon.html",
+        id: "https%3A%2F%2Fkinogo.appspot.com%2F14452-fitnes-1-2-3-4-sezon.html",
     },
     {
         provider: "videocdn",
         id: "tv-series_3381",
-        path: true
+        path: true,
+        timeout: 30000
     },
     {
         provider: "videocdn",
-        id: "movies_1765"
+        id: "movies_1765",
+        timeout: 30000
     },
     {
         provider: "kinovod",
@@ -61,9 +65,12 @@ const testParameters = [
 ]
 
 describe("InfoAPI", () => {
-    testParameters.forEach(({ provider, id, manifest, asyncSource, path, extractors }) => {
+    testParameters.forEach(({ provider, id, manifest, asyncSource, path, extractors, timeout }) => {
         it(`Provider ${provider} should return playlist by ${id}`, async () => {
-            const res =  await axios.get(`${baseApiUrl}/${provider}/items/${id}`)
+            const res =  await axios.get(
+                `${baseApiUrl}/${provider}/items/${id}`,
+                { timeout: timeout || 5000}
+            )
             const { data, status } = res
 
             expect(status, `Server respond status: ${status}`).to.equal(200)
@@ -95,6 +102,6 @@ describe("InfoAPI", () => {
                     expect(file.path, `'path' is not present`).to.be.not.empty
                 }
             })
-        })
+        }).timeout(timeout + 500)
     })
 })

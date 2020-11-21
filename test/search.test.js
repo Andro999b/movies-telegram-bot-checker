@@ -22,26 +22,22 @@ const testParameters = [
     },
     {
         provider: "videocdn",
-        query: "Терминатор"
+        query: "Терминатор",
+        timeout: 15000
     },
     {
         provider: "kinovod",
         query: "Терминатор"
-    },
-    {
-        provider: "7serealov",
-        query: "Во все тяжкие"
-    },
-    {
-        provider: "kinogo2",
-        query: "Во все тяжкие"
     }
 ]
 
 describe("SearchAPI", () => {
-    testParameters.forEach(({ provider, query }) => {
+    testParameters.forEach(({ provider, query, timeout }) => {
         it(`Provider ${provider} should return results by search query '${query}'`, async () => {
-            const res =  await axios.get(`${baseApiUrl}/${provider}/search?q=${encodeURIComponent(query)}`)
+            const res =  await axios.get(
+                `${baseApiUrl}/${provider}/search?q=${encodeURIComponent(query)}`, 
+                { timeout: timeout || 5000}
+            )
             const { data, status } = res
 
             expect(status, `Server respond status: ${status}`).to.equal(200)
@@ -52,6 +48,6 @@ describe("SearchAPI", () => {
                 expect(result.name, `Empty name`).to.be.not.empty
                 expect(result.id, `Missing id`).to.be.not.null
             })
-        })
+        }).timeout(timeout + 500)
     })
 })
