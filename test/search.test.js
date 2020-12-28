@@ -13,6 +13,14 @@ const testParameters = [
         query: "Тетрадь смерти"
     },
     {
+        provider: "anidub",
+        query: "Дорохедоро"
+    },
+    {
+        provider: "animedia",
+        query: "Дорохедоро"
+    },
+    {
         provider: "seasonvar",
         query: "Во все тяжкие"
     },
