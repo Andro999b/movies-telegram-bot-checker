@@ -5,10 +5,6 @@ const baseApiUrl = "https://mcw4r3l663.execute-api.eu-central-1.amazonaws.com/pr
 
 const testParameters = [
     {
-        type: "animevost",
-        url: "https://play.roomfish.ru/2147406642"
-    },
-    {
         type: "sibnetmp4",
         url: "https://video.sibnet.ru/shell.php?videoid=3580403"
     }
