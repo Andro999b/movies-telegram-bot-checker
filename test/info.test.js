@@ -11,7 +11,7 @@ const testParameters = [
         audio: true
     },
     {
-        provider: "nekomori",
+        provider: "nekomori", //Чёрный клевер
         id: "150",
         extractors: [ "sibnetmp4", "anigit" ],
         audio: true
@@ -19,7 +19,7 @@ const testParameters = [
     {
         provider: "nekomori",
         id: "13712",
-        extractors: [ "sibnetmp4", "stormo" ],
+        extractors: [ "sibnetmp4", "anigit" ],
         audio: true
     },
     {

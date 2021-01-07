@@ -7,6 +7,10 @@ const testParameters = [
     {
         type: "sibnetmp4",
         url: "https://video.sibnet.ru/shell.php?videoid=3580403"
+    },
+    {
+        type: "anigit",
+        url: "https://aniqit.com/serial/24057/3002e903007e30473cb85755964eea48/720p?season=1&only_episode=true&episode=100&translations=false"
     }
 ]
 
