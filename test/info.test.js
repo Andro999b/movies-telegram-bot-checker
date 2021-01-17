@@ -92,13 +92,14 @@ describe("InfoAPI", () => {
     testParameters.forEach(({ provider, id, manifest, asyncSource, path, extractors, timeout, quality, audio }) => {
         it(`Provider ${provider} should return playlist by ${id}`, async () => {
             const res =  await axios.get(
-                `${baseApiUrl}/${provider}/items/${id}`,
+                `${baseApiUrl}/${provider}/items/${id}?dnt=1`,
                 { timeout: timeout || 5000}
             )
             const { data, status } = res
 
             expect(status, `Server respond status: ${status}`).to.equal(200)
             expect(data, `Empty response`).to.be.not.null
+            expect(data.id, `Empty id`).to.be.not.empty
             expect(data.title, `Empty title`).to.be.not.empty
             expect(data.image, `Playlist logo not present`).to.be.not.empty
             expect(data.files, `Playlist files list not present`).to.be.not.empty
