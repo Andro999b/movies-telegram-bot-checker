@@ -10,12 +10,16 @@ const testParameters = [
     },
     {
         type: "anigit",
-        url: "https://aniqit.com/serial/24057/3002e903007e30473cb85755964eea48/720p?season=1&only_episode=true&episode=100&translations=false"
+        url: "https://aniqit.com/serial/24057/3002e903007e30473cb85755964eea48/720p?season=1&only_episode=true&episode=100&translations=false",
+        locationTest: [{
+            regexp: /Sentinel\.mp4/,
+            shouldMath: false
+        }]
     }
 ]
 
 describe("ExtractAPI", () => {
-    testParameters.forEach(({ type, url }) => {
+    testParameters.forEach(({ type, url, locationTest }) => {
         it(`Extractor ${type} should works for ${url}`, async () => {
             const res = await axios.get(`${baseApiUrl}?type=${type}&url=${encodeURIComponent(url)}`, { 
                 maxRedirects: 0,
@@ -25,6 +29,17 @@ describe("ExtractAPI", () => {
             const location = res.headers['location']
 
             expect(location).to.be.not.null
+
+            console.log(location)
+
+            if(locationTest) {
+                locationTest.forEach(({ regexp, shouldMath }) => {
+                    if(shouldMath)
+                        expect(location).to.match(regexp)
+                    else
+                        expect(location).to.not.match(regexp)
+                })
+            }
         })
     })
 })
