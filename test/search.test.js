@@ -35,7 +35,7 @@ const testParameters = [
     },
     {
         provider: "kinovod",
-        query: "Терминатор"
+        query: "веном"
     }
 ]
 
