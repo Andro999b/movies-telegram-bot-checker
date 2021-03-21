@@ -6,7 +6,7 @@ const baseApiUrl = "https://mcw4r3l663.execute-api.eu-central-1.amazonaws.com/pr
 const testParameters = [
     {
         provider: "nekomori",
-        query: "Тетрадь смерти"
+        query: "Выдающиеся звери"
     },   
     {
         provider: "animevost",
