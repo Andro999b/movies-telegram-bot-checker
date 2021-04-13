@@ -4,24 +4,24 @@ const { expect } = require("chai")
 const baseApiUrl = "https://mcw4r3l663.execute-api.eu-central-1.amazonaws.com/prod/api/trackers"
 
 const testParameters = [
-    {
-        provider: "nekomori",
-        id: "2685",
-        extractors: [ "sibnetmp4" ],
-        audio: true
-    },
-    {
-        provider: "nekomori", //Чёрный клевер
-        id: "150",
-        extractors: [ "sibnetmp4", "anigit" ],
-        audio: true
-    },    
-    {
-        provider: "nekomori",
-        id: "13712",
-        extractors: [ "sibnetmp4", "anigit" ],
-        audio: true
-    },
+    // {
+    //     provider: "nekomori",
+    //     id: "2685",
+    //     extractors: [ "sibnetmp4" ],
+    //     audio: true
+    // },
+    // {
+    //     provider: "nekomori", //Чёрный клевер
+    //     id: "150",
+    //     extractors: [ "sibnetmp4", "anigit" ],
+    //     audio: true
+    // },    
+    // {
+    //     provider: "nekomori",
+    //     id: "13712",
+    //     extractors: [ "sibnetmp4", "anigit" ],
+    //     audio: true
+    // },
     {
         provider: "animevost",
         id: "https%3A%2F%2Fanimevost.org%2Ftip%2Ftv%2F2281-dr-stone.html",

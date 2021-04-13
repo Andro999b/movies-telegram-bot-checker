@@ -4,10 +4,10 @@ const { expect } = require("chai")
 const baseApiUrl = "https://mcw4r3l663.execute-api.eu-central-1.amazonaws.com/prod/api/trackers"
 
 const testParameters = [
-    {
-        provider: "nekomori",
-        query: "Выдающиеся звери"
-    },   
+    // {
+    //     provider: "nekomori",
+    //     query: "Выдающиеся звери"
+    // },   
     {
         provider: "animevost",
         query: "Тетрадь смерти"
@@ -47,6 +47,8 @@ describe("SearchAPI", () => {
                 { timeout: timeout || 5000}
             )
             const { data, status } = res
+
+            console.log(`${baseApiUrl}/${provider}/search?q=${encodeURIComponent(query)}`)
 
             expect(status, `Server respond status: ${status}`).to.equal(200)
             expect(data, `Empty response`).to.be.not.empty
