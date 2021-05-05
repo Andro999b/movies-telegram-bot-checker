@@ -34,7 +34,7 @@ const testParameters = [
     {
         provider: "animedia",
         id: "%2Fanime%2Fdorohedoro",
-        manifest: true
+        // manifest: true
     },
     {
         provider: "seasonvar",
