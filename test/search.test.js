@@ -4,10 +4,10 @@ const { expect } = require("chai")
 const baseApiUrl = "https://mcw4r3l663.execute-api.eu-central-1.amazonaws.com/prod/api/trackers"
 
 const testParameters = [
-    // {
-    //     provider: "nekomori",
-    //     query: "Выдающиеся звери"
-    // },   
+    {
+        provider: "anigato",
+        query: "Выдающиеся звери"
+    },   
     {
         provider: "animevost",
         query: "Тетрадь смерти"

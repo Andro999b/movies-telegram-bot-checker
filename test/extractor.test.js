@@ -10,7 +10,7 @@ const testParameters = [
     },
     {
         type: "anigit",
-        url: "https://aniqit.com/serial/24057/3002e903007e30473cb85755964eea48/720p?season=1&only_episode=true&episode=100&translations=false",
+        url: "https://aniqit.com/serial/33972/20f7e906f7369529b9eee44bea18bdb4/720p?only_season=true",
         locationTest: [{
             regexp: /Sentinel\.mp4/,
             shouldMath: false

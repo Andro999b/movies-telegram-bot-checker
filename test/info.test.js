@@ -23,6 +23,10 @@ const testParameters = [
     //     audio: true
     // },
     {
+        provider: "anigato",
+        id: "https%3A%2F%2Fanigato.ru%2Fanime_ova%2F1794-vanpanchmen-ova.html",
+    },
+    {
         provider: "animevost",
         id: "https%3A%2F%2Fanimevost.org%2Ftip%2Ftv%2F2281-dr-stone.html",
         asyncSource: true
