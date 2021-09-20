@@ -36,6 +36,14 @@ const testParameters = [
     {
         provider: "kinovod",
         query: "веном"
+    },
+    {
+        provider: "rezka",
+        query: "Терминатор"
+    },
+    {
+        provider: "rezka",
+        query: "Во все тяжкие"
     }
 ]
 

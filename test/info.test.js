@@ -89,7 +89,17 @@ const testParameters = [
         id: "%2Ftv_show%2F7357-grand-tur",
         path: true,
         quality: true
-    }
+    },
+    {
+        provider: "rezka",
+        id: "https%3A%2F%2Frezka.ag%2Fcartoons%2Faction%2F41656-komanda-k-2021.html",
+        asyncSource: true
+    },
+    {
+        provider: "rezka",
+        id: "https%3A%2F%2Frezka.ag%2Ffilms%2Ffiction%2F1394-terminator-1984.html",
+        asyncSource: true
+    },
 ]
 
 describe("InfoAPI", () => {
