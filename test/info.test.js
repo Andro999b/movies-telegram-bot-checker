@@ -46,36 +46,21 @@ const testParameters = [
     },
     { // movie
         provider: "kinogo",
-        id: "https%3A%2F%2Fkinogo.appspot.com%2F11361-venom_2018___22-01.html",
+        id: "https%3A%2F%2Fkinogo.la%2F11361-venom_2018___22-01.html",
         timeout: 15000,
         quality: true,
         audio: true
     },
     { // tvshow
         provider: "kinogo",
-        id: "https%3A%2F%2Fkinogo.appspot.com%2F17293-project-blue-book_1-2-sezon.html",
+        id: "https%3A%2F%2Fkinogo.la%2F17293-project-blue-book_1-2-sezon.html",
         timeout: 15000,
         quality: true,
         audio: true
     },
     {
         provider: "kinogo",
-        id: "https%3A%2F%2Fkinogo.appspot.com%2F14452-fitnes-1-2-3-4-sezon.html",
-        quality: true,
-        audio: true
-    },
-    {
-        provider: "videocdn",
-        id: "tv-series_3381",
-        path: true,
-        timeout: 30000,
-        quality: true,
-        audio: true
-    },
-    {
-        provider: "videocdn",
-        id: "movies_1765",
-        timeout: 30000,
+        id: "https%3A%2F%2Fkinogo.la%2F14452-fitnes-1-2-3-4-sezon.html",
         quality: true,
         audio: true
     },

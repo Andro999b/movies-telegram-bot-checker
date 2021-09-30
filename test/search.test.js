@@ -29,11 +29,6 @@ const testParameters = [
         query: "Терминатор"
     },
     {
-        provider: "videocdn",
-        query: "Терминатор",
-        timeout: 15000
-    },
-    {
         provider: "kinovod",
         query: "веном"
     },
