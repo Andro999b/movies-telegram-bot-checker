@@ -6,7 +6,7 @@ const baseApiUrl = "https://mcw4r3l663.execute-api.eu-central-1.amazonaws.com/pr
 const testParameters = [
     {
         type: "sibnetmp4",
-        url: "https://video.sibnet.ru/shell.php?videoid=3580403"
+        url: "https://video.sibnet.ru/shell.php?videoid=3853084"
     },
     {
         type: "anigit",
