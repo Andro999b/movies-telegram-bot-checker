@@ -32,6 +32,10 @@ const testParameters = [
         provider: "kinovod",
         query: "веном"
     },
+    {
+        provider: "anitubeua",
+        query: "шпигун"
+    }
     // {
     //     provider: "rezka",
     //     query: "Терминатор"

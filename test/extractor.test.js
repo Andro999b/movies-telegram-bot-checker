@@ -6,7 +6,19 @@ const baseApiUrl = "https://mcw4r3l663.execute-api.eu-central-1.amazonaws.com/pr
 const testParameters = [
     {
         type: "sibnetmp4",
-        url: "https://video.sibnet.ru/shell.php?videoid=3853084"
+        url: "https://video.sibnet.ru/shell.php?videoid=3853084",
+        locationTest: [{
+            regexp: /.*\.mp4.*/,
+            shouldMath: true
+        }]
+    },   
+    {
+        type: "ashdi",
+        url: "https://ashdi.vip/vod/62469",
+        locationTest: [{
+            regexp: /.*\.m3u8/,
+            shouldMath: true
+        }]
     },
     {
         type: "anigit",

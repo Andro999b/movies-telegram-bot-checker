@@ -4,24 +4,6 @@ const { expect } = require("chai")
 const baseApiUrl = "https://mcw4r3l663.execute-api.eu-central-1.amazonaws.com/prod/api/trackers"
 
 const testParameters = [
-    // {
-    //     provider: "nekomori",
-    //     id: "2685",
-    //     extractors: [ "sibnetmp4" ],
-    //     audio: true
-    // },
-    // {
-    //     provider: "nekomori", //Чёрный клевер
-    //     id: "150",
-    //     extractors: [ "sibnetmp4", "anigit" ],
-    //     audio: true
-    // },    
-    // {
-    //     provider: "nekomori",
-    //     id: "13712",
-    //     extractors: [ "sibnetmp4", "anigit" ],
-    //     audio: true
-    // },
     {
         provider: "anigato",
         id: "https%3A%2F%2Fanigato.ru%2Fanime_ova%2F1794-vanpanchmen-ova.html",
@@ -78,7 +60,7 @@ const testParameters = [
         id: "%2Ftv_show%2F7357-grand-tur",
         path: true,
         quality: true
-    },
+    }
     // {
     //     provider: "rezka",
     //     id: "https%3A%2F%2Frezka.ag%2Fcartoons%2Faction%2F41656-komanda-k-2021.html",
