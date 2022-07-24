@@ -32,14 +32,14 @@ const testParameters = [
         provider: "kinovod",
         query: "веном"
     },
-    {
-        provider: "rezka",
-        query: "Терминатор"
-    },
-    {
-        provider: "rezka",
-        query: "Во все тяжкие"
-    }
+    // {
+    //     provider: "rezka",
+    //     query: "Терминатор"
+    // },
+    // {
+    //     provider: "rezka",
+    //     query: "Во все тяжкие"
+    // }
 ]
 
 describe("SearchAPI", () => {

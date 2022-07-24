@@ -27,6 +27,10 @@ const testParameters = [
         id: "https%3A%2F%2Fanigato.ru%2Fanime_ova%2F1794-vanpanchmen-ova.html",
     },
     {
+        provider: "anigato",
+        id: "https%3A%2F%2Fanigato.ru%2Fanime%2F8763-semja-shpiona-tv-1.html",
+    },
+    {
         provider: "animevost",
         id: "https%3A%2F%2Fanimevost.org%2Ftip%2Ftv%2F2281-dr-stone.html",
         asyncSource: true
@@ -75,25 +79,25 @@ const testParameters = [
         path: true,
         quality: true
     },
-    {
-        provider: "rezka",
-        id: "https%3A%2F%2Frezka.ag%2Fcartoons%2Faction%2F41656-komanda-k-2021.html",
-        asyncSource: true
-    },
-    {
-        provider: "rezka",
-        id: "https%3A%2F%2Frezka.ag%2Ffilms%2Ffiction%2F1394-terminator-1984.html",
-        asyncSource: true
-    },
+    // {
+    //     provider: "rezka",
+    //     id: "https%3A%2F%2Frezka.ag%2Fcartoons%2Faction%2F41656-komanda-k-2021.html",
+    //     asyncSource: true
+    // },
+    // {
+    //     provider: "rezka",
+    //     id: "https%3A%2F%2Frezka.ag%2Ffilms%2Ffiction%2F1394-terminator-1984.html",
+    //     asyncSource: true
+    // },
 ]
 
 describe("InfoAPI", () => {
     testParameters.forEach(({ provider, id, manifest, asyncSource, path, extractors, timeout, quality, audio }) => {
         it(`Provider ${provider} should return playlist by ${id}`, async () => {
-            const res =  await axios.get(
-                `${baseApiUrl}/${provider}/items/${id}?dnt=1`,
-                { timeout: timeout || 5000}
-            )
+            const url = `${baseApiUrl}/${provider}/items/${id}?dnt=1`
+
+            console.log(url)
+            const res =  await axios.get(url, { timeout: timeout || 5000})
             const { data, status } = res
 
             expect(status, `Server respond status: ${status}`).to.equal(200)

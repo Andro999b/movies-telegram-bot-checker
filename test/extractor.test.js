@@ -10,7 +10,19 @@ const testParameters = [
     },
     {
         type: "anigit",
-        url: "https://aniqit.com/serial/33972/20f7e906f7369529b9eee44bea18bdb4/720p?only_season=true",
+        url: "//aniqit.com/video/58648/1247aab35781f3abdaa2790488175dbd/720p",
+        locationTest: [{
+            regexp: /Sentinel\.mp4/,
+            shouldMath: false
+        }]
+    },
+    {
+        type: "anigit",
+        url: "//aniqit.com/serial/42082/bffa908f73b10136f7faf121cb852577/720p",
+        params: {
+            hash: "f3e70a0b6da0f7a40e2b2bcfc16c2a01",
+            id: "985884"
+        },
         locationTest: [{
             regexp: /Sentinel\.mp4/,
             shouldMath: false
@@ -19,22 +31,32 @@ const testParameters = [
 ]
 
 describe("ExtractAPI", () => {
-    testParameters.forEach(({ type, url, locationTest }) => {
+    testParameters.forEach(({ type, url, locationTest, params }) => {
         it(`Extractor ${type} should works for ${url}`, async () => {
-            const res = await axios.get(`${baseApiUrl}?type=${type}&url=${encodeURIComponent(url)}`, { 
-                maxRedirects: 0,
-                validateStatus: (status) => status == 302
-            })
+            let targetUrl = `${baseApiUrl}?type=${type}&url=${encodeURIComponent(url)}`
+
+            if(params) {
+                targetUrl += Object.keys(params).map(key => targetUrl = key + '=' + params[key]).join('&')
+            }
+
+            console.log("Traget URL: ", targetUrl)
+            const res = await axios.get(
+                targetUrl,
+                {
+                    maxRedirects: 0,
+                    validateStatus: (status) => status == 302
+                }
+            )
 
             const location = res.headers['location']
 
             expect(location).to.be.not.null
 
-            console.log(location)
+            console.log("Location: " + location)
 
-            if(locationTest) {
+            if (locationTest) {
                 locationTest.forEach(({ regexp, shouldMath }) => {
-                    if(shouldMath)
+                    if (shouldMath)
                         expect(location).to.match(regexp)
                     else
                         expect(location).to.not.match(regexp)
