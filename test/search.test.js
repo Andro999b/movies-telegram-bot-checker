@@ -35,6 +35,10 @@ const testParameters = [
     {
         provider: "anitubeua",
         query: "шпигун"
+    },
+    {
+        provider: "eneyida",
+        query: "Зоряна брама"
     }
     // {
     //     provider: "rezka",
@@ -49,13 +53,13 @@ const testParameters = [
 describe("SearchAPI", () => {
     testParameters.forEach(({ provider, query, timeout }) => {
         it(`Provider ${provider} should return results by search query '${query}'`, async () => {
+            console.log(`${baseApiUrl}/${provider}/search?q=${encodeURIComponent(query)}`)
+            
             const res =  await axios.get(
                 `${baseApiUrl}/${provider}/search?q=${encodeURIComponent(query)}`, 
                 { timeout: timeout || 5000}
             )
             const { data, status } = res
-
-            console.log(`${baseApiUrl}/${provider}/search?q=${encodeURIComponent(query)}`)
 
             expect(status, `Server respond status: ${status}`).to.equal(200)
             expect(data, `Empty response`).to.be.not.empty
