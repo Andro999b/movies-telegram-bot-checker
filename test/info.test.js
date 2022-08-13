@@ -1,7 +1,7 @@
 const axios = require("axios")
 const { expect } = require("chai")
 
-const baseApiUrl = "https://mcw4r3l663.execute-api.eu-central-1.amazonaws.com/prod/api/trackers"
+const baseApiUrl = "https://ng9vbpj84c.execute-api.eu-north-1.amazonaws.com/prod/api/trackers"
 
 const testParameters = [
     {
@@ -60,6 +60,11 @@ const testParameters = [
         id: "%2Ftv_show%2F7357-grand-tur",
         path: true,
         quality: true
+    },
+    {
+        provider: "eneyida",
+        id: "https%3A%2F%2Feneyida.tv%2F2319-zoryana-brama-sg-1.html",
+        path: true
     }
     // {
     //     provider: "rezka",
