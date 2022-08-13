@@ -66,17 +66,12 @@ const testParameters = [
         provider: "eneyida",
         id: "https%3A%2F%2Feneyida.tv%2F2319-zoryana-brama-sg-1.html",
         path: true
+    },
+    {
+        provider: "uafilmtv",
+        id: "https%3A%2F%2Fuafilm.tv%2F4703-zoryana-brama-sg-1.html",
+        path: true
     }
-    // {
-    //     provider: "rezka",
-    //     id: "https%3A%2F%2Frezka.ag%2Fcartoons%2Faction%2F41656-komanda-k-2021.html",
-    //     asyncSource: true
-    // },
-    // {
-    //     provider: "rezka",
-    //     id: "https%3A%2F%2Frezka.ag%2Ffilms%2Ffiction%2F1394-terminator-1984.html",
-    //     asyncSource: true
-    // },
 ]
 
 describe("InfoAPI", () => {

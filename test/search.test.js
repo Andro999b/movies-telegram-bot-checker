@@ -40,15 +40,11 @@ const testParameters = [
     {
         provider: "eneyida",
         query: "Зоряна брама"
+    },
+    {
+        provider: "uafilmtv",
+        query: "Зоряна брама"
     }
-    // {
-    //     provider: "rezka",
-    //     query: "Терминатор"
-    // },
-    // {
-    //     provider: "rezka",
-    //     query: "Во все тяжкие"
-    // }
 ]
 
 describe("SearchAPI", () => {
