@@ -57,7 +57,10 @@ describe("ExtractAPI", () => {
                 targetUrl,
                 {
                     maxRedirects: 0,
-                    validateStatus: (status) => status == 302
+                    validateStatus: (status) => status == 302,
+                    headers: {
+                        origin: "localhost:3000"
+                    }
                 }
             )
 

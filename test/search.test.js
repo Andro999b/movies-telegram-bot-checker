@@ -54,7 +54,12 @@ describe("SearchAPI", () => {
             
             const res =  await axios.get(
                 `${baseApiUrl}/${provider}/search?q=${encodeURIComponent(query)}`, 
-                { timeout: timeout || 5000}
+                { 
+                    timeout: timeout || 5000,
+                    headers: {
+                        origin: "localhost:3000"
+                    }
+                }
             )
             const { data, status } = res
 

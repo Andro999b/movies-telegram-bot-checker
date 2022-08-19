@@ -80,7 +80,14 @@ describe("InfoAPI", () => {
             const url = `${baseApiUrl}/${provider}/items/${id}?dnt=1`
 
             console.log(url)
-            const res =  await axios.get(url, { timeout: timeout || 5000})
+            const res =  await axios.get(url, { 
+                timeout: timeout || 5000,
+                headers: {
+                    origin: "localhost:3000"
+                }
+            })
+
+
             const { data, status } = res
 
             expect(status, `Server respond status: ${status}`).to.equal(200)

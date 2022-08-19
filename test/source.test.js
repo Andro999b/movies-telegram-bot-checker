@@ -16,7 +16,11 @@ const testParameters = [
 describe("SourceAPI", () => {
     testParameters.forEach(({provider, itemId, sourceId, quality}) => {
         it(`Provider ${provider} shoudl return info for async source ${sourceId} of item ${itemId}`, async () => {
-            const res = await axios.get(`${baseApiUrl}/${provider}/items/${itemId}/source/${sourceId}`)
+            const res = await axios.get(`${baseApiUrl}/${provider}/items/${itemId}/source/${sourceId}`, {
+                headers: {
+                    origin: "localhost:3000"
+                }
+            })
 
             const { data, status } = res
 
