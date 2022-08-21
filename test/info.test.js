@@ -8,10 +8,12 @@ const testParameters = [
     {
         provider: "anigato",
         id: "https%3A%2F%2Fanigato.ru%2Fanime_ova%2F1794-vanpanchmen-ova.html",
+        hls: true
     },
     {
         provider: "anigato",
         id: "https%3A%2F%2Fanigato.ru%2Fanime%2F8763-semja-shpiona-tv-1.html",
+        hls: true
     },
     {
         provider: "animevost",
@@ -68,14 +70,22 @@ const testParameters = [
         path: true
     },
     {
-        provider: "uafilmtv",
-        id: "https%3A%2F%2Fuafilm.tv%2F4703-zoryana-brama-sg-1.html",
-        path: true
+        provider: "uaserials",
+        id: "https%3A%2F%2Fuaserials.pro%2F196-zoryana-brama-sezon-1.html",
+        path: true,
+        extractors: ['tortuga'],
+        hls: true
+    },
+    {
+        provider: "uaserials",
+        id: "https%3A%2F%2Fuaserials.pro%2F6573-nastupni-365-dniv.html",
+        extractors: ['tortuga'],
+        hls: true
     }
 ]
 
 describe("InfoAPI", () => {
-    testParameters.forEach(({ provider, id, manifest, asyncSource, path, extractors, timeout, quality, audio }) => {
+    testParameters.forEach(({ provider, id, manifest, asyncSource, path, extractors, hls, timeout, quality, audio }) => {
         it(`Provider ${provider} should return playlist by ${id}`, async () => {
             const url = `${baseApiUrl}/${provider}/items/${id}?dnt=1`
 
@@ -118,6 +128,9 @@ describe("InfoAPI", () => {
                         }
                         if(audio) {
                             expect(urlInfo.audio, `'audio' is not present`).to.be.not.null
+                        }
+                        if(hls) {
+                            expect(urlInfo.hls, `'hls' is not true`).to.be.true
                         }
                     })
                 }

@@ -41,8 +41,12 @@ const testParameters = [
         provider: "eneyida",
         query: "Зоряна брама"
     },
+    // {
+    //     provider: "uafilmtv",
+    //     query: "Зоряна брама"
+    // },
     {
-        provider: "uafilmtv",
+        provider: "uaserials",
         query: "Зоряна брама"
     }
 ]
