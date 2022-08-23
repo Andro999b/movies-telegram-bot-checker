@@ -87,7 +87,7 @@ const testParameters = [
 describe("InfoAPI", () => {
     testParameters.forEach(({ provider, id, manifest, asyncSource, path, extractors, hls, timeout, quality, audio }) => {
         it(`Provider ${provider} should return playlist by ${id}`, async () => {
-            const url = `${baseApiUrl}/${provider}/items/${id}?dnt=1`
+            const url = `${baseApiUrl}/${provider}/items/${id}`
 
             console.log(url)
             const res =  await axios.get(url, { 

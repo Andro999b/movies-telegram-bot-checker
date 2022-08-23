@@ -12,7 +12,7 @@ const testParameters = [
             regexp: /.*\.mp4.*/,
             shouldMath: true
         }]
-    },   
+    },
     {
         type: "ashdi",
         url: "https://ashdi.vip/vod/62469",
@@ -23,22 +23,41 @@ const testParameters = [
     },
     {
         type: "anigit",
-        url: "//aniqit.com/video/58648/1247aab35781f3abdaa2790488175dbd/720p",
+        url: "",
+        params: {
+            thash: '63514a5821d395f177ea95b9b0e29380',
+            tid: '77025',
+            ttype: 'video'
+        },
         locationTest: [{
-            regexp: /Sentinel\.mp4/,
-            shouldMath: false
+            regexp: /.*\.m3u8/,
+            shouldMath: true
         }]
     },
     {
         type: "anigit",
-        url: "//aniqit.com/serial/42082/bffa908f73b10136f7faf121cb852577/720p",
+        url: "1",
         params: {
-            hash: "f3e70a0b6da0f7a40e2b2bcfc16c2a01",
-            id: "985884"
+            "season": "1",
+            "thash": "20efcb3cd42984ab0e54bae268fb3a07",
+            "tid": "42068",
+            "ttype": "serial"
         },
         locationTest: [{
-            regexp: /Sentinel\.mp4/,
-            shouldMath: false
+            regexp: /.*\.m3u8/,
+            shouldMath: true
+        }]
+    },
+    {
+        type: "anidub",
+        url: "/player/index.php?vid=/s1/11038/1/1.mp4&url=/anime_ova/11168-udivitelnyy-mir-el-hazard-ova-1-el-hazard-the-magnificent-world.html&ses=ff&id=-1"
+    },
+    {
+        type: "tortuga",
+        url: "https://tortuga.wtf/vod/79962",
+        locationTest: [{
+            regexp: /.*\.m3u8/,
+            shouldMath: true
         }]
     }
 ]
@@ -48,8 +67,8 @@ describe("ExtractAPI", () => {
         it(`Extractor ${type} should works for ${url}`, async () => {
             let targetUrl = `${baseApiUrl}?type=${type}&url=${encodeURIComponent(url)}`
 
-            if(params) {
-                targetUrl += Object.keys(params).map(key => targetUrl = key + '=' + params[key]).join('&')
+            if (params) {
+                targetUrl += "&" + Object.keys(params).map(key => targetUrl = key + '=' + params[key]).join('&')
             }
 
             console.log("Traget URL: ", targetUrl)
@@ -57,26 +76,28 @@ describe("ExtractAPI", () => {
                 targetUrl,
                 {
                     maxRedirects: 0,
-                    validateStatus: (status) => status == 302,
+                    validateStatus: (status) => status == 302 || status == 200,
                     headers: {
                         origin: "localhost:3000"
                     }
                 }
             )
 
-            const location = res.headers['location']
-
-            expect(location).to.be.not.null
-
-            console.log("Location: " + location)
-
             if (locationTest) {
-                locationTest.forEach(({ regexp, shouldMath }) => {
-                    if (shouldMath)
-                        expect(location).to.match(regexp)
-                    else
-                        expect(location).to.not.match(regexp)
-                })
+                const location = res.headers['location']
+
+                expect(location).to.be.not.null
+
+                console.log("Location: " + location)
+
+                if (locationTest) {
+                    locationTest.forEach(({ regexp, shouldMath }) => {
+                        if (shouldMath)
+                            expect(location).to.match(regexp)
+                        else
+                            expect(location).to.not.match(regexp)
+                    })
+                }
             }
         })
     })
