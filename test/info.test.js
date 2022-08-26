@@ -8,12 +8,14 @@ const testParameters = [
     {
         provider: "anigato",
         id: "https%3A%2F%2Fanigato.ru%2Fanime_ova%2F1794-vanpanchmen-ova.html",
-        hls: true
+        hls: true,
+        audio: true
     },
     {
         provider: "anigato",
         id: "https%3A%2F%2Fanigato.ru%2Fanime%2F8763-semja-shpiona-tv-1.html",
-        hls: true
+        hls: true,
+        audio: true
     },
     {
         provider: "animevost",
@@ -81,17 +83,33 @@ const testParameters = [
         id: "https%3A%2F%2Fuaserials.pro%2F6573-nastupni-365-dniv.html",
         extractors: ['tortuga'],
         hls: true
+    },
+    {
+        provider: "anitubeua",
+        id: "https%3A%2F%2Fanitube.in.ua%2F3948-spy-x-family.html",
+        audio: true
+    },
+    {
+        provider: "videocdn",
+        id: "animes_143",
+        quality: true
+    },
+    {
+        provider: "videocdn",
+        id: "tv-series_4946",
+        quality: true,
+        audio: true
     }
 ]
 
 describe("InfoAPI", () => {
     testParameters.forEach(({ provider, id, manifest, asyncSource, path, extractors, hls, timeout, quality, audio }) => {
         it(`Provider ${provider} should return playlist by ${id}`, async () => {
-            const url = `${baseApiUrl}/${provider}/items/${id}`
+            const url = `${baseApiUrl}/${provider}/items/${id}?nocache=true`
 
             console.log(url)
             const res =  await axios.get(url, { 
-                timeout: timeout || 5000,
+                timeout: timeout || 20000,
                 headers: {
                     origin: "localhost:3000"
                 }
@@ -119,7 +137,7 @@ describe("InfoAPI", () => {
                     expect(file.urls, `'urls' is not present`).to.be.not.empty
                     file.urls.forEach((urlInfo) => {
                         expect(urlInfo.url, `'url' is not present`).to.be.not.null
-                        if(extractors) {
+                        if(extractors && urlInfo.extractor) {
                             expect(urlInfo.extractor, 'expect extractor to exits').exist
                             expect(urlInfo.extractor.type, `Unknow extractor type ${urlInfo.extractor.type}`).to.be.oneOf(extractors)
                         }
