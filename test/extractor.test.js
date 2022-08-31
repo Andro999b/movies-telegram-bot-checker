@@ -36,6 +36,14 @@ const testParameters = [
     },
     {
         type: "anigit",
+        url: "https://kodik.biz/video/59004/302a1cf84c1a57de140328a89052df96/720p",
+        locationTest: [{
+            regexp: /.*\.m3u8/,
+            shouldMath: true
+        }]
+    },
+    {
+        type: "anigit",
         url: "1",
         params: {
             "season": "1",
