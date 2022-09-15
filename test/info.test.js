@@ -40,26 +40,26 @@ const testParameters = [
         provider: "seasonvar",
         id: "%2Fserial-24137-Grand_Tur-4-sezon.html",
     },
-    { // movie
-        provider: "kinogo",
-        id: "https%3A%2F%2Fkinogo.la%2F11361-venom_2018___22-01.html",
-        timeout: 15000,
-        quality: true,
-        audio: true
-    },
-    { // tvshow
-        provider: "kinogo",
-        id: "https%3A%2F%2Fkinogo.la%2F17293-project-blue-book_1-2-sezon.html",
-        timeout: 15000,
-        quality: true,
-        audio: true
-    },
-    {
-        provider: "kinogo",
-        id: "https%3A%2F%2Fkinogo.la%2F14452-fitnes-1-2-3-4-sezon.html",
-        quality: true,
-        audio: true
-    },
+    // { // movie
+    //     provider: "kinogo",
+    //     id: "https%3A%2F%2Fkinogo.la%2F11361-venom_2018___22-01.html",
+    //     timeout: 15000,
+    //     quality: true,
+    //     audio: true
+    // },
+    // { // tvshow
+    //     provider: "kinogo",
+    //     id: "https%3A%2F%2Fkinogo.la%2F17293-project-blue-book_1-2-sezon.html",
+    //     timeout: 15000,
+    //     quality: true,
+    //     audio: true
+    // },
+    // {
+    //     provider: "kinogo",
+    //     id: "https%3A%2F%2Fkinogo.la%2F14452-fitnes-1-2-3-4-sezon.html",
+    //     quality: true,
+    //     audio: true
+    // },
     {
         provider: "kinovod",
         id: "%2Ffilm%2F2164-gorod-grehov",
