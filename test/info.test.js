@@ -98,7 +98,7 @@ const testParameters = [
         provider: "anitubeua",
         id: "https%3A%2F%2Fanitube.in.ua%2F1866-legenda-pro-korru-2.html",
         audio: false,
-        extractors: ['tortuga']
+        extractors: ['tortuga', 'ashdi']
     },
     {
         provider: "videocdn",
