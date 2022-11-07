@@ -1,17 +1,11 @@
 version: 2.1
 orbs:
-  node: circleci/node@5.0.2
+  node: circleci/node@5.0.3
 jobs:
   test:
-    executor: node/default
-    steps:
-      - checkout
-      - node/install-packages:
-          cache-path: ~/project/node_modules
-          override-ci-command: yarn
-      - run: jest --ci --runInBand --reporters=default --reporters=jest-junit
-      - tore_test_results:
-          path: ./reports/
+    jobs:
+      - node/test:
+          test-results-for: jest
 workflows:
   version: 2
   periodic:
