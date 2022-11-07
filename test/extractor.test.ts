@@ -1,5 +1,5 @@
 import axios from "axios"
-import { describe, it, expect } from "@jest/globals"
+import { describe, test, expect } from "@jest/globals"
 import { baseUrl } from "./constants"
 
 const baseApiUrl = `${baseUrl}/api/extract`
@@ -39,7 +39,9 @@ const createTest =
       if (locationTest) {
         const location = res.headers["location"]
 
+        expect(location).toBeDefined
         expect(location).not.toBeNull
+        expect(location.length > 0).toBeTruthy
 
         console.log("Location: " + location)
 
@@ -63,7 +65,7 @@ describe("ExtractAPI", () => {
       },
     ],
   }))
-  it("ashdi", createTest({
+  test("ashdi", createTest({
     type: "ashdi",
     url: "https://ashdi.vip/vod/62469",
     locationTest: [
@@ -75,7 +77,7 @@ describe("ExtractAPI", () => {
   }))
 
   describe("anigit", () => {
-    it("movie", createTest({
+    test("movie", createTest({
       type: "anigit",
       url: "https://kodik.biz/video/59004/302a1cf84c1a57de140328a89052df96/720p",
       locationTest: [
@@ -85,7 +87,7 @@ describe("ExtractAPI", () => {
         },
       ],
     }))
-    it("serial episode", createTest({
+    test("serial episode", createTest({
       type: "anigit",
       url: "1",
       params: {
@@ -102,16 +104,26 @@ describe("ExtractAPI", () => {
       ],
     }))
   })
-  it("anidub", createTest({
+  test("anidub", createTest({
     type: "anidub",
     url: "/player/index.php?vid=/s1/11038/1/1.mp4&url=/anime_ova/11168-udivitelnyy-mir-el-hazard-ova-1-el-hazard-the-magnificent-world.html&ses=ff&id=-1",
   }))
-  it("tortuga", createTest({
+  test("tortuga", createTest({
     type: "tortuga",
     url: "https://tortuga.wtf/vod/79962",
     locationTest: [
       {
         regexp: /.*\.m3u8/,
+        shouldMath: true,
+      },
+    ],
+  }))
+  test("mp4", createTest({
+    type: "mp4",
+    url: "https://csst.online/embed/626265/",
+    locationTest: [
+      {
+        regexp: /.*\.mp4/,
         shouldMath: true,
       },
     ],

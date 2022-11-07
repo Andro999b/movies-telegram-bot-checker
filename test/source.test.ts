@@ -12,15 +12,6 @@ interface TestParameters {
   quality: boolean
 }
 
-const testParameters = [
-  {
-    provider: "animevost",
-    itemId: "https%253A%252F%252Fanimevost.org%252Ftip%252Ftv%252F2424-no-guns-life-2nd-season.html",
-    sourceId: "2147415892",
-    quality: true
-  }
-]
-
 const createTest = ({ provider, itemId, sourceId, quality }: TestParameters) => async () => {
   const res = await axios.get(`${baseApiUrl}/${provider}/items/${itemId}/source/${sourceId}`, {
     headers: {
@@ -32,13 +23,14 @@ const createTest = ({ provider, itemId, sourceId, quality }: TestParameters) => 
   const data: File = res.data
 
   expect(status).toBe(200)
-  expect(data).not.toBe
-  expect(data.urls).not.toBeNull
+  expect(data).toBeDefined
+  expect(Array.isArray(data.urls)).toBeTruthy
+  expect(data.urls!.length > 0).toBeTruthy
 
   data.urls!.forEach((urlInfo) => {
-    expect(urlInfo.url).not.toBeNull
+    expect(typeof urlInfo.url).toBe("string")
     if (quality) {
-      expect(urlInfo.quality).not.toBeNull
+      expect(urlInfo.quality).toBeGreaterThan(0)
     }
   })
 }

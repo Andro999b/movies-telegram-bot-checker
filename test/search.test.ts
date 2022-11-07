@@ -26,12 +26,14 @@ const createTest = ({ provider, query }: TestParameters) => async () => {
   const data: SearchResult[] = res.data
 
   expect(status).toBe(200)
-  expect(data).not.toBeNull
+  expect(data).toBeDefined
+  expect(Array.isArray(data)).toBeTruthy
+  expect(Array.length > 0).toBeTruthy
 
   data.forEach((result) => {
-    expect(result.provider).toBe(provider)
-    expect(result.name).not.toBe
-    expect(result.id).not.toBe
+    expect(typeof result.provider).toBe("string")
+    expect(typeof result.name).toBe("string")
+    expect(typeof result.id).toBe("string")
   })
 }
 
@@ -43,7 +45,7 @@ describe("SearchAPI", () => {
   test("animevost", createTest({
     provider: "animevost",
     query: "Тетрадь смерти"
-  }))  
+  }))
   test("anidub", createTest({
     provider: "anidub",
     query: "Дорохедоро"
@@ -60,6 +62,10 @@ describe("SearchAPI", () => {
     provider: "kinogo",
     query: "Терминатор"
   }))
+  test("videocdn", createTest({
+    provider: "videocdn",
+    query: "Терминатор"
+  }))
   test("kinovod", createTest({
     provider: "kinovod",
     query: "веном"
@@ -67,7 +73,7 @@ describe("SearchAPI", () => {
   test("anitubeua", createTest({
     provider: "anitubeua",
     query: "шпигун"
-  }))
+  }), 20000)
   test("eneyida", createTest({
     provider: "eneyida",
     query: "Зоряна брама"

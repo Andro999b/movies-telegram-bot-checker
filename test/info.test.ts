@@ -32,34 +32,42 @@ const createTest =
       const data: Playlist = res.data
 
       expect(status).toBe(200)
-      expect(data).not.toBeNull
-      expect(data.id).not.toBeNull
-      expect(data.title).not.toBeNull
-      expect(data.image).not.toBeNull
-      expect(data.files).not.toBeNull
+      expect(data).toBeDefined
+      expect(["string", "number"].includes(typeof data.id)).toBeTruthy
+      expect(typeof data.title).toBe("string")
+      expect(data.title.length > 0).toBeTruthy
+      expect(Array.isArray(data.files)).toBeTruthy
 
       data.files.forEach((file) => {
-        expect(file.id).not.toBeNull
-        expect(file.name).not.toBeNull
+        expect(["string", "number"].includes(typeof data.id)).toBeTruthy
+        expect(typeof file.name).toBe("string")
+        expect(file.name!.length > 0).toBeTruthy
 
         if (asyncSource) {
-          expect(file.asyncSource).not.toBeNull
+          const type = typeof file.asyncSource
+          if (type === "object") {
+            expect(file.asyncSource).toHaveProperty("sourceId")
+          } else {
+            expect(type).toBe("string")
+          }
         } else {
-          expect(file.urls).not.toBeNull
-          file.urls?.forEach((urlInfo) => {
-            expect(urlInfo.url).not.toBeNull
+          expect(Array.isArray(file.urls)).toBeTruthy
+          expect(file.urls!.length > 0).toBeTruthy
+          file.urls!.forEach((urlInfo) => {
+            expect(typeof urlInfo.url).toBe("string")
             if (extractors && urlInfo.extractor) {
-              expect(urlInfo.extractor).not.toBeNull
-              // expect(urlInfo.extractor.type).toBe.oneOf(extractors)
+              expect(urlInfo.extractor).toBeDefined
+              expect(extractors.includes(urlInfo.extractor!.type)).toBeTruthy
             }
             if (quality) {
-              expect(urlInfo.quality).not.toBeNull
+              expect(urlInfo.quality).toBeGreaterThan(0)
             }
             if (audio) {
-              expect(urlInfo.audio).not.toBeNull
+              expect(typeof urlInfo.audio).toBe("string")
+              expect(urlInfo.audio!.length > 0).toBeTruthy
             }
             if (hls) {
-              expect(urlInfo.hls).toBeTruthy
+              expect(typeof urlInfo.hls).toBe("boolean")
             }
           })
         }
@@ -102,8 +110,7 @@ describe("InfoAPI", () => {
   }))
   test("animedia", createTest({
     provider: "animedia",
-    id: "%2Fanime%2Fdorohedoro",
-    hls: true
+    id: "%2Fanime%2Fdorohedoro"
   }))
   test("animedia", createTest({
     provider: "seasonvar",
