@@ -8,10 +8,10 @@ jobs:
       - checkout
       - node/install-packages:
           cache-path: ~/project/node_modules
-          override-ci-command: npm install
-      - run: npm run test
-      - store_test_results:
-          path: test-results
+          override-ci-command: yarn
+      - run: jest --ci --runInBand --reporters=default --reporters=jest-junit
+      - tore_test_results:
+          path: ./reports/
 workflows:
   version: 2
   periodic:
