@@ -118,14 +118,4 @@ describe("ExtractAPI", () => {
       },
     ],
   }))
-  test("mp4", createTest({
-    type: "mp4",
-    url: "https://csst.online/embed/626265/",
-    locationTest: [
-      {
-        regexp: /.*\.mp4/,
-        shouldMath: true,
-      },
-    ],
-  }), 10000)
 })
