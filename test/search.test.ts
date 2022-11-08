@@ -65,7 +65,7 @@ describe("SearchAPI", () => {
   test("videocdn", createTest({
     provider: "videocdn",
     query: "Терминатор"
-  }))
+  }), 20000)
   test("kinovod", createTest({
     provider: "kinovod",
     query: "веном"
@@ -81,5 +81,10 @@ describe("SearchAPI", () => {
   test("uaserials", createTest({
     provider: "uaserials",
     query: "Зоряна брама"
+  }))
+
+  test("uakinoclub", createTest({
+    provider: "uakinoclub",
+    query: "Енола"
   }))
 })

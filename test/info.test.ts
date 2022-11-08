@@ -187,4 +187,16 @@ describe("InfoAPI", () => {
       hls: true
     }))
   })
+  describe("uakinoclub", () => {
+    test("movie", createTest({
+      provider: "uakinoclub",
+      id: "https%3A%2F%2Fuakino.club%2Ffilmy%2Fgenre-action%2F15719-enola-golms-2.html",
+      hls: true
+    }))
+    test("tv show", createTest({
+      provider: "uakinoclub",
+      id: "https%3A%2F%2Fuakino.club%2Fanimeukr%2Fanime-series%2F15231-kberpank-t-scho-bzhat-po-krayu-1-sezon.html",
+      hls: true
+    }))
+  })
 })
