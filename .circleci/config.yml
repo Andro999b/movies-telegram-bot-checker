@@ -6,7 +6,8 @@ workflows:
   periodic:
     jobs:
       - node/test:
-          test-results-for: mocha
+          test-results-for: jest
+          pkg-manager: yarn
     triggers:
       - schedule:
           cron: "0 8 * * *"
