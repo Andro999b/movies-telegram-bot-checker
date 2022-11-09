@@ -87,4 +87,9 @@ describe("SearchAPI", () => {
     provider: "uakinoclub",
     query: "Енола"
   }))
+
+  test("uafilmtv", createTest({
+    provider: "uafilmtv",
+    query: "Енола"
+  }))
 })

@@ -31,6 +31,8 @@ const createTest =
       const { status } = res
       const data: Playlist = res.data
 
+      console.log(data)
+
       expect(status).toBe(200)
       expect(data).toBeDefined
       expect(["string", "number"].includes(typeof data.id)).toBeTruthy
@@ -39,7 +41,7 @@ const createTest =
       expect(Array.isArray(data.files)).toBeTruthy
 
       data.files.forEach((file) => {
-        expect(["string", "number"].includes(typeof data.id)).toBeTruthy
+        expect(["string", "number"].includes(typeof file.id)).toBeTruthy
         expect(typeof file.name).toBe("string")
         expect(file.name!.length > 0).toBeTruthy
 
@@ -191,12 +193,22 @@ describe("InfoAPI", () => {
     test("movie", createTest({
       provider: "uakinoclub",
       id: "https%3A%2F%2Fuakino.club%2Ffilmy%2Fgenre-action%2F15719-enola-golms-2.html",
-      hls: true
     }))
     test("tv show", createTest({
       provider: "uakinoclub",
       id: "https%3A%2F%2Fuakino.club%2Fanimeukr%2Fanime-series%2F15231-kberpank-t-scho-bzhat-po-krayu-1-sezon.html",
       hls: true
+    }))
+  })
+
+  describe("uafilmtv", () => {
+    test("movie", createTest({
+      provider: "uafilmtv",
+      id: "https%3A%2F%2Fuafilm.tv%2F11943-%25D0%25B1%25D0%25B0%25D0%25B7%25D0%25B7-%25D1%2580%25D1%258F%25D1%2582%25D1%2596%25D0%25B2%25D0%25BD%25D0%25B8%25D0%25BA.html",
+    }))
+    test("tv show", createTest({
+      provider: "uafilmtv",
+      id: "https%3A%2F%2Fuafilm.tv%2F4514-druz.html",
     }))
   })
 })
