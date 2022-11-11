@@ -23,9 +23,9 @@ const createTest = ({ provider, itemId, sourceId, quality }: TestParameters) => 
   const data: File = res.data
 
   expect(status).toBe(200)
-  expect(data).toBeDefined
-  expect(Array.isArray(data.urls)).toBeTruthy
-  expect(data.urls!.length > 0).toBeTruthy
+  expect(data).toBeDefined()
+  expect(Array.isArray(data.urls)).toBeTruthy()
+  expect(data.urls!.length > 0).toBeTruthy()
 
   data.urls!.forEach((urlInfo) => {
     expect(typeof urlInfo.url).toBe("string")

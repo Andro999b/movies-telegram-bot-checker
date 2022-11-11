@@ -26,9 +26,9 @@ const createTest = ({ provider, query }: TestParameters) => async () => {
   const data: SearchResult[] = res.data
 
   expect(status).toBe(200)
-  expect(data).toBeDefined
-  expect(Array.isArray(data)).toBeTruthy
-  expect(Array.length > 0).toBeTruthy
+  expect(data).toBeDefined()
+  expect(Array.isArray(data)).toBeTruthy()
+  expect(Array.length > 0).toBeTruthy()
 
   data.forEach((result) => {
     expect(typeof result.provider).toBe("string")

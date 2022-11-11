@@ -34,16 +34,17 @@ const createTest =
       console.log(data)
 
       expect(status).toBe(200)
-      expect(data).toBeDefined
-      expect(["string", "number"].includes(typeof data.id)).toBeTruthy
+      expect(data).toBeDefined()
+      expect(["string", "number"].includes(typeof data.id)).toBeTruthy()
       expect(typeof data.title).toBe("string")
-      expect(data.title.length > 0).toBeTruthy
-      expect(Array.isArray(data.files)).toBeTruthy
+      expect(data.title.length > 0).toBeTruthy()
+      expect(Array.isArray(data.files)).toBeTruthy()
+      expect(data.files.length > 0).toBeTruthy()
 
       data.files.forEach((file) => {
-        expect(["string", "number"].includes(typeof file.id)).toBeTruthy
+        expect(["string", "number"].includes(typeof file.id)).toBeTruthy()
         expect(typeof file.name).toBe("string")
-        expect(file.name!.length > 0).toBeTruthy
+        expect(file.name!.length > 0).toBeTruthy()
 
         if (asyncSource) {
           const type = typeof file.asyncSource
@@ -53,20 +54,20 @@ const createTest =
             expect(type).toBe("string")
           }
         } else {
-          expect(Array.isArray(file.urls)).toBeTruthy
-          expect(file.urls!.length > 0).toBeTruthy
+          expect(Array.isArray(file.urls)).toBeTruthy()
+          expect(file.urls!.length > 0).toBeTruthy()
           file.urls!.forEach((urlInfo) => {
             expect(typeof urlInfo.url).toBe("string")
             if (extractors && urlInfo.extractor) {
-              expect(urlInfo.extractor).toBeDefined
-              expect(extractors.includes(urlInfo.extractor!.type)).toBeTruthy
+              expect(urlInfo.extractor).toBeDefined()
+              expect(extractors.includes(urlInfo.extractor!.type)).toBeTruthy()
             }
             if (quality) {
               expect(urlInfo.quality).toBeGreaterThan(0)
             }
             if (audio) {
               expect(typeof urlInfo.audio).toBe("string")
-              expect(urlInfo.audio!.length > 0).toBeTruthy
+              expect(urlInfo.audio!.length > 0).toBeTruthy()
             }
             if (hls) {
               expect(typeof urlInfo.hls).toBe("boolean")
@@ -75,7 +76,7 @@ const createTest =
         }
 
         if (path) {
-          expect(file.path).not.toBeNull
+          expect(file.path).not.toBeNull()
         }
       })
     }

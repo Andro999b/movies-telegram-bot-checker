@@ -39,9 +39,9 @@ const createTest =
       if (locationTest) {
         const location = res.headers["location"]
 
-        expect(location).toBeDefined
-        expect(location).not.toBeNull
-        expect(location.length > 0).toBeTruthy
+        expect(location).toBeDefined()
+        expect(location).not.toBeNull()
+        expect(location.length > 0).toBeTruthy()
 
         console.log("Location: " + location)
 
