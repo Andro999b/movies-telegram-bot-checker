@@ -41,7 +41,7 @@ describe("SearchAPI", () => {
   test("anigato", createTest({
     provider: "anigato",
     query: "Выдающиеся звери"
-  }))
+  }), 15000)
   test("animevost", createTest({
     provider: "animevost",
     query: "Тетрадь смерти"
