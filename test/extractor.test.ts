@@ -108,14 +108,14 @@ describe("ExtractAPI", () => {
     type: "anidub",
     url: "/player/index.php?vid=/s1/11038/1/1.mp4&url=/anime_ova/11168-udivitelnyy-mir-el-hazard-ova-1-el-hazard-the-magnificent-world.html&ses=ff&id=-1",
   }))
-  test("tortuga", createTest({
-    type: "tortuga",
-    url: "https://tortuga.wtf/vod/79962",
-    locationTest: [
-      {
-        regexp: /.*\.m3u8/,
-        shouldMath: true,
-      },
-    ],
-  }))
+  // test("tortuga", createTest({
+  //   type: "tortuga",
+  //   url: "https://tortuga.wtf/vod/79962",
+  //   locationTest: [
+  //     {
+  //       regexp: /.*\.m3u8/,
+  //       shouldMath: true,
+  //     },
+  //   ],
+  // }))
 })

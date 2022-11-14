@@ -34,7 +34,7 @@ const createTest =
       console.log(data)
 
       expect(status).toBe(200)
-      expect(data).toBeDefined()
+      expect(data).not.toBeNull()
       expect(["string", "number"].includes(typeof data.id)).toBeTruthy()
       expect(typeof data.title).toBe("string")
       expect(data.title.length > 0).toBeTruthy()
@@ -132,11 +132,11 @@ describe("InfoAPI", () => {
       quality: true,
     }))
   })
-  test("eneyida", createTest({
-    provider: "eneyida",
-    id: "https%3A%2F%2Feneyida.tv%2F2319-zoryana-brama-sg-1.html",
-    path: true,
-  }))
+  // test("eneyida", createTest({
+  //   provider: "eneyida",
+  //   id: "https%3A%2F%2Feneyida.tv%2F2319-zoryana-brama-sg-1.html",
+  //   path: true,
+  // }))
   describe("uaserials", () => {
     test("tv show", createTest({
       provider: "uaserials",
