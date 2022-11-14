@@ -168,7 +168,7 @@ describe("InfoAPI", () => {
   describe("videocdn", () => {
     test("movie", createTest({
       provider: "videocdn",
-      id: "animes_143",
+      id: "movies_32426",
       quality: true,
     }), 30000)
     test("tv show", createTest({
