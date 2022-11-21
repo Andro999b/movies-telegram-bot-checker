@@ -109,7 +109,6 @@ describe("InfoAPI", () => {
   test("anidub", createTest({
     provider: "anidub",
     id: "https%3A%2F%2Fanime.anidub.life%2Fanime%2Ffull%2F11115-dorohedoro-dorohedoro-anons.html",
-    hls: true
   }))
   test("animedia", createTest({
     provider: "animedia",
@@ -142,13 +141,13 @@ describe("InfoAPI", () => {
       provider: "uaserials",
       id: "https%3A%2F%2Fuaserials.pro%2F196-zoryana-brama-sezon-1.html",
       path: true,
-      extractors: ["tortuga"],
+      extractors: ["m3u8local"],
       hls: true,
     }))
     test("movie", createTest({
       provider: "uaserials",
       id: "https%3A%2F%2Fuaserials.pro%2F6573-nastupni-365-dniv.html",
-      extractors: ["tortuga"],
+      extractors: ["m3u8local"],
       hls: true,
     }))
   })
