@@ -109,6 +109,7 @@ describe("InfoAPI", () => {
   test("anidub", createTest({
     provider: "anidub",
     id: "https%3A%2F%2Fanime.anidub.life%2Fanime%2Ffull%2F11115-dorohedoro-dorohedoro-anons.html",
+    extractors: ['anidub', 'sibnetmp4']
   }))
   test("animedia", createTest({
     provider: "animedia",
