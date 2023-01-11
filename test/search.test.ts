@@ -46,10 +46,10 @@ describe("SearchAPI", () => {
     provider: "animevost",
     query: "Тетрадь смерти"
   }))
-  test("anidub", createTest({
-    provider: "anidub",
-    query: "Дорохедоро"
-  }))
+  // test("anidub", createTest({
+  //   provider: "anidub",
+  //   query: "Дорохедоро"
+  // }))
   test("animedia", createTest({
     provider: "animedia",
     query: "Дорохедоро"

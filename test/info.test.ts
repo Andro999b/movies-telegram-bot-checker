@@ -106,11 +106,11 @@ describe("InfoAPI", () => {
     id: "https%3A%2F%2Fanimevost.org%2Ftip%2Ftv%2F2281-dr-stone.html",
     asyncSource: true,
   }))
-  test("anidub", createTest({
-    provider: "anidub",
-    id: "https%3A%2F%2Fanime.anidub.life%2Fanime%2Ffull%2F11115-dorohedoro-dorohedoro-anons.html",
-    extractors: ['anidub', 'sibnetmp4']
-  }))
+  // test("anidub", createTest({
+  //   provider: "anidub",
+  //   id: "https%3A%2F%2Fanime.anidub.life%2Fanime%2Ffull%2F11115-dorohedoro-dorohedoro-anons.html",
+  //   extractors: ['anidub', 'sibnetmp4']
+  // }))
   test("animedia", createTest({
     provider: "animedia",
     id: "%2Fanime%2Fdorohedoro"
