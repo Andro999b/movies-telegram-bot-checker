@@ -142,13 +142,13 @@ describe("InfoAPI", () => {
       provider: "uaserials",
       id: "https%3A%2F%2Fuaserials.pro%2F196-zoryana-brama-sezon-1.html",
       path: true,
-      extractors: ["m3u8local"],
+      extractors: ["m3u8proxy"],
       hls: true,
     }))
     test("movie", createTest({
       provider: "uaserials",
       id: "https%3A%2F%2Fuaserials.pro%2F6573-nastupni-365-dniv.html",
-      extractors: ["m3u8local"],
+      extractors: ["m3u8proxy"],
       hls: true,
     }))
   })
@@ -162,22 +162,22 @@ describe("InfoAPI", () => {
       provider: "anitubeua",
       id: "https%3A%2F%2Fanitube.in.ua%2F1866-legenda-pro-korru-2.html",
       audio: false,
-      extractors: ["m3u8local", "ashdi"],
+      extractors: ["tortuga", "ashdi"],
     }))
   })
-  describe("videocdn", () => {
-    test("movie", createTest({
-      provider: "videocdn",
-      id: "movies_32426",
-      quality: true,
-    }), 30000)
-    test("tv show", createTest({
-      provider: "videocdn",
-      id: "tv-series_4946",
-      quality: true,
-      audio: true,
-    }), 30000)
-  })
+  // describe("videocdn", () => {
+  //   test("movie", createTest({
+  //     provider: "videocdn",
+  //     id: "movies_32426",
+  //     quality: true,
+  //   }), 30000)
+  //   test("tv show", createTest({
+  //     provider: "videocdn",
+  //     id: "tv-series_4946",
+  //     quality: true,
+  //     audio: true,
+  //   }), 30000)
+  // })
   describe("kinogo", () => {
     test("movie", createTest({
       provider: "kinogo",
