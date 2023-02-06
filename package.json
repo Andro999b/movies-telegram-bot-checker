@@ -2,7 +2,7 @@
   "name": "movies-telegram-bot-checker",
   "version": "1.0.0",
   "description": "",
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
     "test": "jest"
   },
