@@ -113,11 +113,11 @@ describe("InfoAPI", () => {
   // }))
   test("animedia", createTest({
     provider: "animedia",
-    id: "%2Fanime%2Fdorohedoro"
+    id: "dorohedoro"
   }))
   test("animedia", createTest({
     provider: "seasonvar",
-    id: "%2Fserial-24137-Grand_Tur-4-sezon.html",
+    id: "serial-24137-Grand_Tur-4-sezon",
   }))
   describe("kinovod", () => {
     test("movie", createTest({
@@ -140,14 +140,14 @@ describe("InfoAPI", () => {
   describe("uaserials", () => {
     test("tv show", createTest({
       provider: "uaserials",
-      id: "https%3A%2F%2Fuaserials.pro%2F196-zoryana-brama-sezon-1.html",
+      id: "196-zoryana-brama-sezon-1",
       path: true,
       extractors: ["m3u8proxy"],
       hls: true,
     }))
     test("movie", createTest({
       provider: "uaserials",
-      id: "https%3A%2F%2Fuaserials.pro%2F6573-nastupni-365-dniv.html",
+      id: "6573-nastupni-365-dniv",
       extractors: ["m3u8proxy"],
       hls: true,
     }))
@@ -155,12 +155,12 @@ describe("InfoAPI", () => {
   describe("anitubeua", () => {
     test("page v1", createTest({
       provider: "anitubeua",
-      id: "https%3A%2F%2Fanitube.in.ua%2F3948-spy-x-family.html",
+      id: "3948-spy-x-family",
       audio: true,
     }))
     test("page v2", createTest({
       provider: "anitubeua",
-      id: "https%3A%2F%2Fanitube.in.ua%2F1866-legenda-pro-korru-2.html",
+      id: "1866-legenda-pro-korru-2",
       audio: false,
       extractors: ["tortuga", "ashdi"],
     }))
@@ -181,12 +181,12 @@ describe("InfoAPI", () => {
   describe("kinogo", () => {
     test("movie", createTest({
       provider: "kinogo",
-      id: "https%3A%2F%2Fkinogo.la%2F11361-venom_2018___22-01.html",
+      id: "11361-venom_2018___22-01",
       hls: true
     }))
     test("tv show", createTest({
       provider: "kinogo",
-      id: "https%3A%2F%2Fkinogo.la%2F17293-project-blue-book_1-2-sezon.html",
+      id: "17293-project-blue-book_1-2-sezon",
       hls: true
     }))
   })
@@ -209,7 +209,7 @@ describe("InfoAPI", () => {
     }))
     test("tv show", createTest({
       provider: "uafilmtv",
-      id: "https%3A%2F%2Fuafilm.tv%2F4514-druz.html",
+      id: "4514-druz",
     }))
   })
 })
