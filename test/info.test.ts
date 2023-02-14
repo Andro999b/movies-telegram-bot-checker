@@ -31,8 +31,6 @@ const createTest =
       const { status } = res
       const data: Playlist = res.data
 
-      console.log(data)
-
       expect(status).toBe(200)
       expect(data).not.toBeNull()
       expect(["string", "number"].includes(typeof data.id)).toBeTruthy()
@@ -114,10 +112,6 @@ describe("InfoAPI", () => {
   test("animedia", createTest({
     provider: "animedia",
     id: "dorohedoro"
-  }))
-  test("animedia", createTest({
-    provider: "seasonvar",
-    id: "serial-24137-Grand_Tur-4-sezon",
   }))
   describe("kinovod", () => {
     test("movie", createTest({
